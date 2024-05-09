@@ -13,7 +13,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 
 export default function LoginForm() {
-  const [errorMessage, action] = useFormState(authenticate, undefined);
+  const [code, action] = useFormState(authenticate, undefined);
 
   return (
     <form action={action} className="space-y-3">
@@ -69,10 +69,10 @@ export default function LoginForm() {
           aria-live="polite"
           aria-atomic="true"
         >
-          {errorMessage && (
+          {code  && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className="text-sm text-red-500">{code}</p> 
             </>
           )}
         </div>
